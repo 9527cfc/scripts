@@ -10,11 +10,11 @@
 ============Quantumultx===============
 [task_local]
 #京东极速版
-0 1-14/4 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js, tag=京东极速版, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
+30 0 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js, tag=京东极速版, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "0 1-14/4 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js,tag=京东极速版
+cron "30 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js,tag=京东极速版
 
 ===============Surge=================
 京东极速版 = type=cron,cronexp="0 7 * * *",wake-system=1,timeout=33600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js
