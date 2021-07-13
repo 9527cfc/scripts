@@ -3,7 +3,8 @@
  * 包含雇佣导游，建议每小时1次
  */
  
-cron 0 1-23/1 * * *
+cron 0 1-23/1 * * * https://raw.fastgit.org/a592345029/scripts/main/jd_cfd.js
+
 const $ = new Env('财富岛');
 const {format} = require('date-fns');
 const axios = require('axios');
