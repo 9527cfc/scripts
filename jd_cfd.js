@@ -195,7 +195,7 @@ function makeShareCodes() {
   return new Promise(async resolve => {
     res = await api('user/QueryUserInfo', '_cfd_t,bizCode,ddwTaskId,dwEnv,ptag,source,strShareId,strZone', {ddwTaskId: '', strShareId: '', strMarkList: 'undefined'})
     console.log('助力码:', res.strMyShareId)
-    shareCodes.push(Math.random() > 0.5 ? res.strMyShareId : '9BA4E10331B63F7501C7F9F00889E35CC648012DEAD86B71DB3EAC56591A2AFB')
+    shareCodes.push(Math.random() > 0.5 ? res.strMyShareId : 'DB0913F3EDEAC88B245AD56D4E0E4ECAB24BD764CA0F42047786A4CF8A64304A')
     resolve()
   })
 }
