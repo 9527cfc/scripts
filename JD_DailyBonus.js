@@ -11,7 +11,7 @@
 
 */
 
-var Key = ''; //单引号内自行填写您抓取的Cookie
+var Key = 'pt_key=AAJg39MGADB8ILjc3X6B8ipF9OOHLfJnTzVbckkCK8jpc-oMG_k0eijnf6HxnY--fsfP8Sqm9MM;pt_pin=jd_aGbnRoddPOmc;'; //单引号内自行填写您抓取的Cookie
 
 var DualKey = ''; //如需双账号签到,此处单引号内填写抓取的"账号2"Cookie, 否则请勿填写
 
