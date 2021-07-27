@@ -277,8 +277,8 @@ function decrypt(time, stk, type, url) {
     if ($.fingerprint && $.token && $.enCryptMethodJD) {
       hash1 = $.enCryptMethodJD($.token, $.fingerprint.toString(), timestamp.toString(), $.appId.toString(), $.CryptoJS).toString($.CryptoJS.enc.Hex);
     } else {
-      const random = 'jVMXzzaU6xSl';
-      $.token = `tk01wcb301c7ea8nSXVqMy9BNk5nWbL/KqtyKAKS+OpjDudjH0zasggRxZsjGV3hyOAN4EsSyu+KnaZHE2xQIGXO7DTP`;
+      const random = '5gkjB6SpmC9s';
+      $.token = `tk01wcdf61cb3a8nYUtHcmhSUFFCfddDPRvKvYaMjHkxo6Aj7dhzO+GXGFa9nPXfcgT+mULoF1b1YIS1ghvSlbwhE0Xc`;
       $.fingerprint = 5287160221454703;
       const str = `${$.token}${$.fingerprint}${timestamp}${$.appId}${random}`;
       hash1 = $.CryptoJS.SHA512(str, $.token).toString($.CryptoJS.enc.Hex);
