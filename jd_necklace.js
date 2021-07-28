@@ -21,7 +21,7 @@ cron "10 0,20 * * *" script-path=jd_necklace.js,tag=点点券
 const $ = new Env('点点券');
 let allMessage = ``;
 const notify = $.isNode() ? require('./sendNotify') : '';
-const zooFaker = require('./utils/ZooFaker_Necklace').utils;
+const zooFaker = require('./ZooFaker_Necklace').utils;
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const openUrl = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://h5.m.jd.com/babelDiy/Zeus/41Lkp7DumXYCFmPYtU3LTcnTTXTX/index.html%22%20%7D`
@@ -197,7 +197,7 @@ function formatInt(num, prec = 1, ceil = false) {
 //每日签到福利
 function necklace_sign() {
   return new Promise(async resolve => {
-    const body = await zooFaker.getBody({ 'cookie': cookie, 'action': 'sign', 'joyToken': joyToken });
+    const body = await zooFaker.getBody({ 'cookie': cookie, 'action': 'sign', 'joyToken': joyToken, 'uuid': uuid });
     $.post(taskPostUrl("necklace_sign", body), async (err, resp, data) => {
       try {
         if (err) {
@@ -230,7 +230,7 @@ function necklace_sign() {
 //兑换无门槛红包
 function necklace_exchangeGift(scoreNums) {
   return new Promise(async resolve => {
-    const body = await zooFaker.getBody({ 'cookie': cookie, 'action': 'exchangeGift', 'id': scoreNums, 'joyToken': joyToken });
+    const body = await zooFaker.getBody({ 'cookie': cookie, 'action': 'exchangeGift', 'id': scoreNums, 'joyToken': joyToken, 'uuid': uuid });
     console.log(`\n使用${scoreNums}个点点券兑换${scoreNums / 1000}元无门槛红包`);
     $.post(taskPostUrl("necklace_exchangeGift", body), async (err, resp, data) => {
       try {
@@ -264,7 +264,7 @@ function necklace_exchangeGift(scoreNums) {
 //领取奖励
 function necklace_chargeScores(bubleId) {
   return new Promise(async resolve => {
-    const body = await zooFaker.getBody({ 'cookie': cookie, 'action': 'chargeScores', 'id': bubleId, 'giftConfigId': $.giftConfigId, 'joyToken': joyToken });
+    const body = await zooFaker.getBody({ 'cookie': cookie, 'action': 'chargeScores', 'id': bubleId, 'giftConfigId': $.giftConfigId, 'joyToken': joyToken, 'uuid': uuid });
     $.post(taskPostUrl("necklace_chargeScores", body), async (err, resp, data) => {
       try {
         if (err) {
@@ -300,7 +300,7 @@ function necklace_startTask(taskId, functionId = 'necklace_startTask', itemId = 
       currentDate: $.lastRequestTime.replace(/:/g, "%3A"),
     }
     if (functionId === 'necklace_startTask') {
-      body = await zooFaker.getBody({ 'id': taskId, 'cookie': cookie, 'action': 'startTask', 'joyToken': joyToken })
+      body = await zooFaker.getBody({ 'id': taskId, 'cookie': cookie, 'action': 'startTask', 'joyToken': joyToken, 'uuid': uuid })
     }
     if (itemId && functionId === 'necklace_reportTask') body['itemId'] = itemId;
     $.post(taskPostUrl(functionId, body), async (err, resp, data) => {
